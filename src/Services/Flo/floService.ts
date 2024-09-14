@@ -39,7 +39,7 @@ interface Music {
 
 const url = 'https://api.music-flo.com/display/v1/browser/chart/1/list?mixYn=N';
 
-async function fetchMusicData(): Promise<void> {
+export async function fetchMusicData(): Promise<void> {
     try {
         const musicsRepository = new MusicsRepository();
         const chartRepository = new ChartRepository();
@@ -67,3 +67,5 @@ async function fetchMusicData(): Promise<void> {
         throw error;
     }
 }
+
+export default fetchMusicData;
