@@ -1,8 +1,16 @@
 import cron from 'node-cron';
 import fetchMusicData from './Services/Flo/floService';
+import fetchGenieMusicData from './Services/Genie/genieService';
+import fetchVibeMusicData from './Services/Vibe/vibeService';
 
-fetchMusicData();
+
+fetchGenieMusicData();
+fetchVibeMusicData();
+fetchFloMusicData();
 
 cron.schedule('0 * * * *', ()=> {
-    fetchMusicData();
+    
+    fetchGenieMusicData();
+    fetchVibeMusicData();
+    fetchFloMusicData();
 });
