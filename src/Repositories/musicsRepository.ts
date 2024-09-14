@@ -34,7 +34,7 @@ export class MusicsRepository extends BaseRepository<Music> {
         }
 
         // Atualizar ChartMusics
-        await this.updateChartMusics(newMusics, chartId);
+        await this.updateChartMusics(musics, chartId);
     }
 
     private async updateChartMusics(musics: Music[], chartId: string): Promise<void> {

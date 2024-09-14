@@ -62,6 +62,7 @@ export async function fetchMusicData(): Promise<void> {
         }));
 
         await musicsRepository.createMultipleMusics(musicList, chart.id);
+        console.log("Musics of Flo added to DB!")
     } catch (error) {
         console.error("Error to fetch and store musics: ", error);
         throw error;
