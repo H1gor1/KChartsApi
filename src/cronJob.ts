@@ -2,16 +2,17 @@ import cron from 'node-cron';
 import fetchFloMusicData from './Services/Flo/floService';
 import fetchGenieMusicData from './Services/Genie/genieService';
 import fetchVibeMusicData from './Services/Vibe/vibeService';
+import fetchMelonMusicData from './Services/Melon/melonService';
 import prisma from './prismaClient';
 
 // Função para executar as três chamadas sequencialmente
 async function fetchAllMusicDataSequentially() {
     try {
-        await prisma.chartMusics.deleteMany();
-
+        await prisma.chartMusics.deleteMany(); //temporary fix
         await fetchGenieMusicData();
         await fetchVibeMusicData();
         await fetchFloMusicData();
+        await fetchMelonMusicData();
     } catch (error) {
         console.error('Erro ao buscar os dados de música:', error);
     }
